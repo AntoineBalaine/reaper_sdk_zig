@@ -372,7 +372,7 @@ pub const DestroyAudioAccessor = _1_DestroyAudioAccessor_;
 extern var _1_DestroyLocalOscHandler_: * ?*const fn(?*anyopaque) callconv(.C) void ;
 pub const DestroyLocalOscHandler = _1_DestroyLocalOscHandler_;
 
-extern var _1_DoActionShortcutDialog_: * ?*const fn(c_int,[*c]KbdSectionInfo,c_int,c_int) callconv(.C) bool ;
+extern var _1_DoActionShortcutDialog_: * ?*const fn(HWND,[*c]KbdSectionInfo,c_int,c_int) callconv(.C) bool ;
 pub const DoActionShortcutDialog = _1_DoActionShortcutDialog_;
 
 extern var _1_Dock_UpdateDockID_: * ?*const fn([*c]const u8,c_int) callconv(.C) void ;
@@ -381,25 +381,25 @@ pub const Dock_UpdateDockID = _1_Dock_UpdateDockID_;
 extern var _1_DockGetPosition_: * ?*const fn(c_int) callconv(.C) c_int ;
 pub const DockGetPosition = _1_DockGetPosition_;
 
-extern var _1_DockIsChildOfDock_: * ?*const fn(c_int,[*c]bool) callconv(.C) c_int ;
+extern var _1_DockIsChildOfDock_: * ?*const fn(HWND,[*c]bool) callconv(.C) c_int ;
 pub const DockIsChildOfDock = _1_DockIsChildOfDock_;
 
-extern var _1_DockWindowActivate_: * ?*const fn(c_int) callconv(.C) void ;
+extern var _1_DockWindowActivate_: * ?*const fn(HWND) callconv(.C) void ;
 pub const DockWindowActivate = _1_DockWindowActivate_;
 
-extern var _1_DockWindowAdd_: * ?*const fn(c_int,[*c]const u8,c_int,bool) callconv(.C) void ;
+extern var _1_DockWindowAdd_: * ?*const fn(HWND,[*c]const u8,c_int,bool) callconv(.C) void ;
 pub const DockWindowAdd = _1_DockWindowAdd_;
 
-extern var _1_DockWindowAddEx_: * ?*const fn(c_int,[*c]const u8,[*c]const u8,bool) callconv(.C) void ;
+extern var _1_DockWindowAddEx_: * ?*const fn(HWND,[*c]const u8,[*c]const u8,bool) callconv(.C) void ;
 pub const DockWindowAddEx = _1_DockWindowAddEx_;
 
 extern var _1_DockWindowRefresh_: * ?*const fn() callconv(.C) void ;
 pub const DockWindowRefresh = _1_DockWindowRefresh_;
 
-extern var _1_DockWindowRefreshForHWND_: * ?*const fn(c_int) callconv(.C) void ;
+extern var _1_DockWindowRefreshForHWND_: * ?*const fn(HWND) callconv(.C) void ;
 pub const DockWindowRefreshForHWND = _1_DockWindowRefreshForHWND_;
 
-extern var _1_DockWindowRemove_: * ?*const fn(c_int) callconv(.C) void ;
+extern var _1_DockWindowRemove_: * ?*const fn(HWND) callconv(.C) void ;
 pub const DockWindowRemove = _1_DockWindowRemove_;
 
 extern var _1_DuplicateCustomizableMenu_: * ?*const fn(?*anyopaque,?*anyopaque) callconv(.C) bool ;
@@ -408,7 +408,7 @@ pub const DuplicateCustomizableMenu = _1_DuplicateCustomizableMenu_;
 extern var _1_EditTempoTimeSigMarker_: * ?*const fn([*c]ReaProject,c_int) callconv(.C) bool ;
 pub const EditTempoTimeSigMarker = _1_EditTempoTimeSigMarker_;
 
-extern var _1_EnsureNotCompletelyOffscreen_: * ?*const fn([*c]c_int) callconv(.C) void ;
+extern var _1_EnsureNotCompletelyOffscreen_: * ?*const fn([*c]RECT) callconv(.C) void ;
 pub const EnsureNotCompletelyOffscreen = _1_EnsureNotCompletelyOffscreen_;
 
 extern const _1_EnumerateFiles_: *const ?*const fn([*c]const u8,c_int) callconv(.C) [*c]u8 ;
@@ -486,7 +486,7 @@ pub const format_timestr_pos = _1_format_timestr_pos_;
 extern var _1_FreeHeapPtr_: * ?*const fn(?*anyopaque) callconv(.C) void ;
 pub const FreeHeapPtr = _1_FreeHeapPtr_;
 
-extern var _1_genGuid_: * ?*const fn([*c]c_int) callconv(.C) void ;
+extern var _1_genGuid_: * ?*const fn([*c]GUID) callconv(.C) void ;
 pub const genGuid = _1_genGuid_;
 
 extern var _1_get_config_var_: * ?*const fn([*c]const u8,[*c]c_int) callconv(.C) ?*anyopaque ;
@@ -531,7 +531,7 @@ pub const GetAudioAccessorStartTime = _1_GetAudioAccessorStartTime_;
 extern var _1_GetAudioDeviceInfo_: * ?*const fn([*c]const u8,[*c]u8,c_int) callconv(.C) bool ;
 pub const GetAudioDeviceInfo = _1_GetAudioDeviceInfo_;
 
-extern var _1_GetColorTheme_: * ?*const fn(c_int,c_int) callconv(.C) c_int ;
+extern var _1_GetColorTheme_: * ?*const fn(c_int,c_int) callconv(.C) INT_PTR ;
 pub const GetColorTheme = _1_GetColorTheme_;
 
 extern var _1_GetColorThemeStruct_: * ?*const fn([*c]c_int) callconv(.C) ?*anyopaque ;
@@ -540,7 +540,7 @@ pub const GetColorThemeStruct = _1_GetColorThemeStruct_;
 extern var _1_GetConfigWantsDock_: * ?*const fn([*c]const u8) callconv(.C) c_int ;
 pub const GetConfigWantsDock = _1_GetConfigWantsDock_;
 
-extern var _1_GetContextMenu_: * ?*const fn(c_int) callconv(.C) c_int ;
+extern var _1_GetContextMenu_: * ?*const fn(c_int) callconv(.C) HMENU ;
 pub const GetContextMenu = _1_GetContextMenu_;
 
 extern var _1_GetCurrentProjectInLoadSave_: * ?*const fn() callconv(.C) [*c]ReaProject ;
@@ -651,7 +651,7 @@ pub const GetLastTouchedFX = _1_GetLastTouchedFX_;
 extern var _1_GetLastTouchedTrack_: * ?*const fn() callconv(.C) [*c]MediaTrack ;
 pub const GetLastTouchedTrack = _1_GetLastTouchedTrack_;
 
-extern var _1_GetMainHwnd_: * ?*const fn() callconv(.C) c_int ;
+extern var _1_GetMainHwnd_: * ?*const fn() callconv(.C) HWND ;
 pub const GetMainHwnd = _1_GetMainHwnd_;
 
 extern var _1_GetMasterMuteSoloFlags_: * ?*const fn() callconv(.C) c_int ;
@@ -699,7 +699,7 @@ pub const GetMediaItemTake_Source = _1_GetMediaItemTake_Source_;
 extern var _1_GetMediaItemTake_Track_: * ?*const fn([*c]MediaItem_Take) callconv(.C) [*c]MediaTrack ;
 pub const GetMediaItemTake_Track = _1_GetMediaItemTake_Track_;
 
-extern var _1_GetMediaItemTakeByGUID_: * ?*const fn([*c]ReaProject,[*c]const c_int) callconv(.C) [*c]MediaItem_Take ;
+extern var _1_GetMediaItemTakeByGUID_: * ?*const fn([*c]ReaProject,[*c]const GUID) callconv(.C) [*c]MediaItem_Take ;
 pub const GetMediaItemTakeByGUID = _1_GetMediaItemTakeByGUID_;
 
 extern var _1_GetMediaItemTakeInfo_Value_: * ?*const fn([*c]MediaItem_Take,[*c]const u8) callconv(.C) f64 ;
@@ -1005,7 +1005,7 @@ pub const GetToggleCommandStateEx = _1_GetToggleCommandStateEx_;
 extern var _1_GetToggleCommandStateThroughHooks_: * ?*const fn([*c]KbdSectionInfo,c_int) callconv(.C) c_int ;
 pub const GetToggleCommandStateThroughHooks = _1_GetToggleCommandStateThroughHooks_;
 
-extern var _1_GetTooltipWindow_: * ?*const fn() callconv(.C) c_int ;
+extern var _1_GetTooltipWindow_: * ?*const fn() callconv(.C) HWND ;
 pub const GetTooltipWindow = _1_GetTooltipWindow_;
 
 extern var _1_GetTrack_: * ?*const fn([*c]ReaProject,c_int) callconv(.C) [*c]MediaTrack ;
@@ -1032,10 +1032,10 @@ pub const GetTrackEnvelopeByName = _1_GetTrackEnvelopeByName_;
 extern var _1_GetTrackFromPoint_: * ?*const fn(c_int,c_int,[*c]c_int) callconv(.C) [*c]MediaTrack ;
 pub const GetTrackFromPoint = _1_GetTrackFromPoint_;
 
-extern var _1_GetTrackGUID_: * ?*const fn([*c]MediaTrack) callconv(.C) [*c]c_int ;
+extern var _1_GetTrackGUID_: * ?*const fn([*c]MediaTrack) callconv(.C) [*c]GUID ;
 pub const GetTrackGUID = _1_GetTrackGUID_;
 
-extern const _1_GetTrackInfo_: *const ?*const fn(c_int,[*c]c_int) callconv(.C) [*c]u8 ;
+extern const _1_GetTrackInfo_: *const ?*const fn(INT_PTR,[*c]c_int) callconv(.C) [*c]u8 ;
 pub const GetTrackInfo = _1_GetTrackInfo_;
 
 extern var _1_GetTrackMediaItem_: * ?*const fn([*c]MediaTrack,c_int) callconv(.C) [*c]MediaItem ;
@@ -1113,13 +1113,13 @@ pub const GoToMarker = _1_GoToMarker_;
 extern var _1_GoToRegion_: * ?*const fn([*c]ReaProject,c_int,bool) callconv(.C) void ;
 pub const GoToRegion = _1_GoToRegion_;
 
-extern var _1_GR_SelectColor_: * ?*const fn(c_int,[*c]c_int) callconv(.C) c_int ;
+extern var _1_GR_SelectColor_: * ?*const fn(HWND,[*c]c_int) callconv(.C) c_int ;
 pub const GR_SelectColor = _1_GR_SelectColor_;
 
 extern var _1_GSC_mainwnd_: * ?*const fn(c_int) callconv(.C) c_int ;
 pub const GSC_mainwnd = _1_GSC_mainwnd_;
 
-extern var _1_guidToString_: * ?*const fn([*c]const c_int,[*c]u8) callconv(.C) void ;
+extern var _1_guidToString_: * ?*const fn([*c]const GUID,[*c]u8) callconv(.C) void ;
 pub const guidToString = _1_guidToString_;
 
 extern var _1_HasExtState_: * ?*const fn([*c]const u8,[*c]const u8) callconv(.C) bool ;
@@ -1182,7 +1182,7 @@ pub const IsTrackSelected = _1_IsTrackSelected_;
 extern var _1_IsTrackVisible_: * ?*const fn([*c]MediaTrack,bool) callconv(.C) bool ;
 pub const IsTrackVisible = _1_IsTrackVisible_;
 
-extern var _1_joystick_create_: * ?*const fn([*c]const c_int) callconv(.C) [*c]joystick_device ;
+extern var _1_joystick_create_: * ?*const fn([*c]const GUID) callconv(.C) [*c]joystick_device ;
 pub const joystick_create = _1_joystick_create_;
 
 extern var _1_joystick_destroy_: * ?*const fn([*c]joystick_device) callconv(.C) void ;
@@ -1209,16 +1209,16 @@ pub const joystick_update = _1_joystick_update_;
 extern var _1_kbd_enumerateActions_: * ?*const fn([*c]KbdSectionInfo,c_int,[*c]const [*c]u8) callconv(.C) c_int ;
 pub const kbd_enumerateActions = _1_kbd_enumerateActions_;
 
-extern var _1_kbd_formatKeyName_: * ?*const fn([*c]c_int,[*c]u8) callconv(.C) void ;
+extern var _1_kbd_formatKeyName_: * ?*const fn([*c]ACCEL,[*c]u8) callconv(.C) void ;
 pub const kbd_formatKeyName = _1_kbd_formatKeyName_;
 
 extern var _1_kbd_getCommandName_: * ?*const fn(c_int,[*c]u8,[*c]KbdSectionInfo) callconv(.C) void ;
 pub const kbd_getCommandName = _1_kbd_getCommandName_;
 
-extern const _1_kbd_getTextFromCmd_: *const ?*const fn(c_int,[*c]KbdSectionInfo) callconv(.C) [*c]u8 ;
+extern const _1_kbd_getTextFromCmd_: *const ?*const fn(DWORD,[*c]KbdSectionInfo) callconv(.C) [*c]u8 ;
 pub const kbd_getTextFromCmd = _1_kbd_getTextFromCmd_;
 
-extern var _1_KBD_OnMainActionEx_: * ?*const fn(c_int,c_int,c_int,c_int,c_int,[*c]ReaProject) callconv(.C) c_int ;
+extern var _1_KBD_OnMainActionEx_: * ?*const fn(c_int,c_int,c_int,c_int,HWND,[*c]ReaProject) callconv(.C) c_int ;
 pub const KBD_OnMainActionEx = _1_KBD_OnMainActionEx_;
 
 extern var _1_kbd_OnMidiEvent_: * ?*const fn([*c]MIDI_event_t,c_int) callconv(.C) void ;
@@ -1227,19 +1227,19 @@ pub const kbd_OnMidiEvent = _1_kbd_OnMidiEvent_;
 extern var _1_kbd_OnMidiList_: * ?*const fn([*c]MIDI_eventlist,c_int) callconv(.C) void ;
 pub const kbd_OnMidiList = _1_kbd_OnMidiList_;
 
-extern var _1_kbd_ProcessActionsMenu_: * ?*const fn(c_int,[*c]KbdSectionInfo) callconv(.C) void ;
+extern var _1_kbd_ProcessActionsMenu_: * ?*const fn(HMENU,[*c]KbdSectionInfo) callconv(.C) void ;
 pub const kbd_ProcessActionsMenu = _1_kbd_ProcessActionsMenu_;
 
-extern var _1_kbd_processMidiEventActionEx_: * ?*const fn([*c]MIDI_event_t,[*c]KbdSectionInfo,c_int) callconv(.C) bool ;
+extern var _1_kbd_processMidiEventActionEx_: * ?*const fn([*c]MIDI_event_t,[*c]KbdSectionInfo,HWND) callconv(.C) bool ;
 pub const kbd_processMidiEventActionEx = _1_kbd_processMidiEventActionEx_;
 
-extern var _1_kbd_reprocessMenu_: * ?*const fn(c_int,[*c]KbdSectionInfo) callconv(.C) void ;
+extern var _1_kbd_reprocessMenu_: * ?*const fn(HMENU,[*c]KbdSectionInfo) callconv(.C) void ;
 pub const kbd_reprocessMenu = _1_kbd_reprocessMenu_;
 
-extern var _1_kbd_RunCommandThroughHooks_: * ?*const fn([*c]KbdSectionInfo,[*c]c_int,[*c]c_int,[*c]c_int,[*c]c_int,c_int) callconv(.C) bool ;
+extern var _1_kbd_RunCommandThroughHooks_: * ?*const fn([*c]KbdSectionInfo,[*c]c_int,[*c]c_int,[*c]c_int,[*c]c_int,HWND) callconv(.C) bool ;
 pub const kbd_RunCommandThroughHooks = _1_kbd_RunCommandThroughHooks_;
 
-extern var _1_kbd_translateAccelerator_: * ?*const fn(c_int,[*c]c_int,[*c]KbdSectionInfo) callconv(.C) c_int ;
+extern var _1_kbd_translateAccelerator_: * ?*const fn(HWND,[*c]MSG,[*c]KbdSectionInfo) callconv(.C) c_int ;
 pub const kbd_translateAccelerator = _1_kbd_translateAccelerator_;
 
 extern var _1_kbd_translateMouse_: * ?*const fn(?*anyopaque,[*c]u8) callconv(.C) bool ;
@@ -1251,13 +1251,13 @@ pub const LICE__Destroy = _1_LICE__Destroy_;
 extern var _1_LICE__DestroyFont_: * ?*const fn([*c]LICE_IFont) callconv(.C) void ;
 pub const LICE__DestroyFont = _1_LICE__DestroyFont_;
 
-extern var _1_LICE__DrawText_: * ?*const fn([*c]LICE_IFont,[*c]LICE_IBitmap,[*c]const u8,c_int,[*c]c_int,c_int) callconv(.C) c_int ;
+extern var _1_LICE__DrawText_: * ?*const fn([*c]LICE_IFont,[*c]LICE_IBitmap,[*c]const u8,c_int,[*c]RECT,UINT) callconv(.C) c_int ;
 pub const LICE__DrawText = _1_LICE__DrawText_;
 
 extern var _1_LICE__GetBits_: * ?*const fn([*c]LICE_IBitmap) callconv(.C) ?*anyopaque ;
 pub const LICE__GetBits = _1_LICE__GetBits_;
 
-extern var _1_LICE__GetDC_: * ?*const fn([*c]LICE_IBitmap) callconv(.C) c_int ;
+extern var _1_LICE__GetDC_: * ?*const fn([*c]LICE_IBitmap) callconv(.C) HDC ;
 pub const LICE__GetDC = _1_LICE__GetDC_;
 
 extern var _1_LICE__GetHeight_: * ?*const fn([*c]LICE_IBitmap) callconv(.C) c_int ;
@@ -1278,7 +1278,7 @@ pub const LICE__resize = _1_LICE__resize_;
 extern var _1_LICE__SetBkColor_: * ?*const fn([*c]LICE_IFont,LICE_pixel) callconv(.C) LICE_pixel ;
 pub const LICE__SetBkColor = _1_LICE__SetBkColor_;
 
-extern var _1_LICE__SetFromHFont_: * ?*const fn([*c]LICE_IFont,c_int,c_int) callconv(.C) void ;
+extern var _1_LICE__SetFromHFont_: * ?*const fn([*c]LICE_IFont,HFONT,c_int) callconv(.C) void ;
 pub const LICE__SetFromHFont = _1_LICE__SetFromHFont_;
 
 extern var _1_LICE__SetTextColor_: * ?*const fn([*c]LICE_IFont,LICE_pixel) callconv(.C) LICE_pixel ;
@@ -1368,7 +1368,7 @@ pub const LICE_LineInt = _1_LICE_LineInt_;
 extern var _1_LICE_LoadPNG_: * ?*const fn([*c]const u8,[*c]LICE_IBitmap) callconv(.C) [*c]LICE_IBitmap ;
 pub const LICE_LoadPNG = _1_LICE_LoadPNG_;
 
-extern var _1_LICE_LoadPNGFromResource_: * ?*const fn(c_int,[*c]const u8,[*c]LICE_IBitmap) callconv(.C) [*c]LICE_IBitmap ;
+extern var _1_LICE_LoadPNGFromResource_: * ?*const fn(HINSTANCE,[*c]const u8,[*c]LICE_IBitmap) callconv(.C) [*c]LICE_IBitmap ;
 pub const LICE_LoadPNGFromResource = _1_LICE_LoadPNGFromResource_;
 
 extern var _1_LICE_MeasureText_: * ?*const fn([*c]const u8,[*c]c_int,[*c]c_int) callconv(.C) void ;
@@ -1566,28 +1566,28 @@ pub const MIDI_SetTextSysexEvt = _1_MIDI_SetTextSysexEvt_;
 extern var _1_MIDI_Sort_: * ?*const fn([*c]MediaItem_Take) callconv(.C) void ;
 pub const MIDI_Sort = _1_MIDI_Sort_;
 
-extern var _1_MIDIEditor_GetActive_: * ?*const fn() callconv(.C) c_int ;
+extern var _1_MIDIEditor_GetActive_: * ?*const fn() callconv(.C) HWND ;
 pub const MIDIEditor_GetActive = _1_MIDIEditor_GetActive_;
 
-extern var _1_MIDIEditor_GetMode_: * ?*const fn(c_int) callconv(.C) c_int ;
+extern var _1_MIDIEditor_GetMode_: * ?*const fn(HWND) callconv(.C) c_int ;
 pub const MIDIEditor_GetMode = _1_MIDIEditor_GetMode_;
 
-extern var _1_MIDIEditor_GetSetting_int_: * ?*const fn(c_int,[*c]const u8) callconv(.C) c_int ;
+extern var _1_MIDIEditor_GetSetting_int_: * ?*const fn(HWND,[*c]const u8) callconv(.C) c_int ;
 pub const MIDIEditor_GetSetting_int = _1_MIDIEditor_GetSetting_int_;
 
-extern var _1_MIDIEditor_GetSetting_str_: * ?*const fn(c_int,[*c]const u8,[*c]u8,c_int) callconv(.C) bool ;
+extern var _1_MIDIEditor_GetSetting_str_: * ?*const fn(HWND,[*c]const u8,[*c]u8,c_int) callconv(.C) bool ;
 pub const MIDIEditor_GetSetting_str = _1_MIDIEditor_GetSetting_str_;
 
-extern var _1_MIDIEditor_GetTake_: * ?*const fn(c_int) callconv(.C) [*c]MediaItem_Take ;
+extern var _1_MIDIEditor_GetTake_: * ?*const fn(HWND) callconv(.C) [*c]MediaItem_Take ;
 pub const MIDIEditor_GetTake = _1_MIDIEditor_GetTake_;
 
 extern var _1_MIDIEditor_LastFocused_OnCommand_: * ?*const fn(c_int,bool) callconv(.C) bool ;
 pub const MIDIEditor_LastFocused_OnCommand = _1_MIDIEditor_LastFocused_OnCommand_;
 
-extern var _1_MIDIEditor_OnCommand_: * ?*const fn(c_int,c_int) callconv(.C) bool ;
+extern var _1_MIDIEditor_OnCommand_: * ?*const fn(HWND,c_int) callconv(.C) bool ;
 pub const MIDIEditor_OnCommand = _1_MIDIEditor_OnCommand_;
 
-extern var _1_MIDIEditor_SetSetting_int_: * ?*const fn(c_int,[*c]const u8,c_int) callconv(.C) bool ;
+extern var _1_MIDIEditor_SetSetting_int_: * ?*const fn(HWND,[*c]const u8,c_int) callconv(.C) bool ;
 pub const MIDIEditor_SetSetting_int = _1_MIDIEditor_SetSetting_int_;
 
 extern var _1_mkpanstr_: * ?*const fn([*c]u8,f64) callconv(.C) void ;
@@ -1608,7 +1608,7 @@ pub const MoveMediaItemToTrack = _1_MoveMediaItemToTrack_;
 extern var _1_MuteAllTracks_: * ?*const fn(bool) callconv(.C) void ;
 pub const MuteAllTracks = _1_MuteAllTracks_;
 
-extern var _1_my_getViewport_: * ?*const fn([*c]c_int,[*c]const c_int,bool) callconv(.C) void ;
+extern var _1_my_getViewport_: * ?*const fn([*c]RECT,[*c]const RECT,bool) callconv(.C) void ;
 pub const my_getViewport = _1_my_getViewport_;
 
 extern var _1_NamedCommandLookup_: * ?*const fn([*c]const u8) callconv(.C) c_int ;
@@ -1635,7 +1635,7 @@ pub const OnStopButtonEx = _1_OnStopButtonEx_;
 extern var _1_OpenColorThemeFile_: * ?*const fn([*c]const u8) callconv(.C) bool ;
 pub const OpenColorThemeFile = _1_OpenColorThemeFile_;
 
-extern var _1_OpenMediaExplorer_: * ?*const fn([*c]const u8,bool) callconv(.C) c_int ;
+extern var _1_OpenMediaExplorer_: * ?*const fn([*c]const u8,bool) callconv(.C) HWND ;
 pub const OpenMediaExplorer = _1_OpenMediaExplorer_;
 
 extern var _1_OscLocalMessageToHost_: * ?*const fn([*c]const u8,[*c]const f64) callconv(.C) void ;
@@ -1671,7 +1671,7 @@ pub const PCM_Sink_Enum = _1_PCM_Sink_Enum_;
 extern const _1_PCM_Sink_GetExtension_: *const ?*const fn([*c]const u8,c_int) callconv(.C) [*c]u8 ;
 pub const PCM_Sink_GetExtension = _1_PCM_Sink_GetExtension_;
 
-extern var _1_PCM_Sink_ShowConfig_: * ?*const fn([*c]const u8,c_int,c_int) callconv(.C) c_int ;
+extern var _1_PCM_Sink_ShowConfig_: * ?*const fn([*c]const u8,c_int,HWND) callconv(.C) HWND ;
 pub const PCM_Sink_ShowConfig = _1_PCM_Sink_ShowConfig_;
 
 extern var _1_PCM_Source_CreateFromFile_: * ?*const fn([*c]const u8) callconv(.C) [*c]PCM_source ;
@@ -1704,7 +1704,7 @@ pub const PeakBuild_CreateEx = _1_PeakBuild_CreateEx_;
 extern var _1_PeakGet_Create_: * ?*const fn([*c]const u8,c_int,c_int) callconv(.C) [*c]REAPER_PeakGet_Interface ;
 pub const PeakGet_Create = _1_PeakGet_Create_;
 
-extern var _1_PitchShiftSubModeMenu_: * ?*const fn(c_int,c_int,c_int,c_int,c_int) callconv(.C) c_int ;
+extern var _1_PitchShiftSubModeMenu_: * ?*const fn(HWND,c_int,c_int,c_int,c_int) callconv(.C) c_int ;
 pub const PitchShiftSubModeMenu = _1_PitchShiftSubModeMenu_;
 
 extern var _1_PlayPreview_: * ?*const fn([*c]preview_register_t) callconv(.C) c_int ;
@@ -1815,7 +1815,7 @@ pub const screenset_unregister = _1_screenset_unregister_;
 extern var _1_screenset_unregisterByParam_: * ?*const fn(?*anyopaque) callconv(.C) void ;
 pub const screenset_unregisterByParam = _1_screenset_unregisterByParam_;
 
-extern var _1_screenset_updateLastFocus_: * ?*const fn(c_int) callconv(.C) void ;
+extern var _1_screenset_updateLastFocus_: * ?*const fn(HWND) callconv(.C) void ;
 pub const screenset_updateLastFocus = _1_screenset_updateLastFocus_;
 
 extern var _1_SectionFromUniqueID_: * ?*const fn(c_int) callconv(.C) [*c]KbdSectionInfo ;
@@ -1980,7 +1980,7 @@ pub const SetTrackSendUIVol = _1_SetTrackSendUIVol_;
 extern var _1_SetTrackStateChunk_: * ?*const fn([*c]MediaTrack,[*c]const u8,bool) callconv(.C) bool ;
 pub const SetTrackStateChunk = _1_SetTrackStateChunk_;
 
-extern var _1_ShowActionList_: * ?*const fn([*c]KbdSectionInfo,c_int) callconv(.C) void ;
+extern var _1_ShowActionList_: * ?*const fn([*c]KbdSectionInfo,HWND) callconv(.C) void ;
 pub const ShowActionList = _1_ShowActionList_;
 
 extern var _1_ShowConsoleMsg_: * ?*const fn([*c]const u8) callconv(.C) void ;
@@ -1989,7 +1989,7 @@ pub const ShowConsoleMsg = _1_ShowConsoleMsg_;
 extern var _1_ShowMessageBox_: * ?*const fn([*c]const u8,[*c]const u8,c_int) callconv(.C) c_int ;
 pub const ShowMessageBox = _1_ShowMessageBox_;
 
-extern var _1_ShowPopupMenu_: * ?*const fn([*c]const u8,c_int,c_int,c_int,?*anyopaque,c_int,c_int) callconv(.C) void ;
+extern var _1_ShowPopupMenu_: * ?*const fn([*c]const u8,c_int,c_int,HWND,?*anyopaque,c_int,c_int) callconv(.C) void ;
 pub const ShowPopupMenu = _1_ShowPopupMenu_;
 
 extern var _1_SLIDER2DB_: * ?*const fn(f64) callconv(.C) f64 ;
@@ -2001,7 +2001,7 @@ pub const SnapToGrid = _1_SnapToGrid_;
 extern var _1_SoloAllTracks_: * ?*const fn(c_int) callconv(.C) void ;
 pub const SoloAllTracks = _1_SoloAllTracks_;
 
-extern var _1_Splash_GetWnd_: * ?*const fn() callconv(.C) c_int ;
+extern var _1_Splash_GetWnd_: * ?*const fn() callconv(.C) HWND ;
 pub const Splash_GetWnd = _1_Splash_GetWnd_;
 
 extern var _1_SplitMediaItem_: * ?*const fn([*c]MediaItem,f64) callconv(.C) [*c]MediaItem ;
@@ -2016,7 +2016,7 @@ pub const StopTrackPreview = _1_StopTrackPreview_;
 extern var _1_StopTrackPreview2_: * ?*const fn(?*anyopaque,[*c]preview_register_t) callconv(.C) c_int ;
 pub const StopTrackPreview2 = _1_StopTrackPreview2_;
 
-extern var _1_stringToGuid_: * ?*const fn([*c]const u8,[*c]c_int) callconv(.C) void ;
+extern var _1_stringToGuid_: * ?*const fn([*c]const u8,[*c]GUID) callconv(.C) void ;
 pub const stringToGuid = _1_stringToGuid_;
 
 extern var _1_StuffMIDIMessage_: * ?*const fn(c_int,c_int,c_int,c_int) callconv(.C) void ;
@@ -2055,13 +2055,13 @@ pub const TakeFX_GetEnabled = _1_TakeFX_GetEnabled_;
 extern var _1_TakeFX_GetEnvelope_: * ?*const fn([*c]MediaItem_Take,c_int,c_int,bool) callconv(.C) [*c]TrackEnvelope ;
 pub const TakeFX_GetEnvelope = _1_TakeFX_GetEnvelope_;
 
-extern var _1_TakeFX_GetFloatingWindow_: * ?*const fn([*c]MediaItem_Take,c_int) callconv(.C) c_int ;
+extern var _1_TakeFX_GetFloatingWindow_: * ?*const fn([*c]MediaItem_Take,c_int) callconv(.C) HWND ;
 pub const TakeFX_GetFloatingWindow = _1_TakeFX_GetFloatingWindow_;
 
 extern var _1_TakeFX_GetFormattedParamValue_: * ?*const fn([*c]MediaItem_Take,c_int,c_int,[*c]u8,c_int) callconv(.C) bool ;
 pub const TakeFX_GetFormattedParamValue = _1_TakeFX_GetFormattedParamValue_;
 
-extern var _1_TakeFX_GetFXGUID_: * ?*const fn([*c]MediaItem_Take,c_int) callconv(.C) [*c]c_int ;
+extern var _1_TakeFX_GetFXGUID_: * ?*const fn([*c]MediaItem_Take,c_int) callconv(.C) [*c]GUID ;
 pub const TakeFX_GetFXGUID = _1_TakeFX_GetFXGUID_;
 
 extern var _1_TakeFX_GetFXName_: * ?*const fn([*c]MediaItem_Take,c_int,[*c]u8,c_int) callconv(.C) bool ;
@@ -2265,13 +2265,13 @@ pub const TrackFX_GetEQBandEnabled = _1_TrackFX_GetEQBandEnabled_;
 extern var _1_TrackFX_GetEQParam_: * ?*const fn([*c]MediaTrack,c_int,c_int,[*c]c_int,[*c]c_int,[*c]c_int,[*c]f64) callconv(.C) bool ;
 pub const TrackFX_GetEQParam = _1_TrackFX_GetEQParam_;
 
-extern var _1_TrackFX_GetFloatingWindow_: * ?*const fn([*c]MediaTrack,c_int) callconv(.C) c_int ;
+extern var _1_TrackFX_GetFloatingWindow_: * ?*const fn([*c]MediaTrack,c_int) callconv(.C) HWND ;
 pub const TrackFX_GetFloatingWindow = _1_TrackFX_GetFloatingWindow_;
 
 extern var _1_TrackFX_GetFormattedParamValue_: * ?*const fn([*c]MediaTrack,c_int,c_int,[*c]u8,c_int) callconv(.C) bool ;
 pub const TrackFX_GetFormattedParamValue = _1_TrackFX_GetFormattedParamValue_;
 
-extern var _1_TrackFX_GetFXGUID_: * ?*const fn([*c]MediaTrack,c_int) callconv(.C) [*c]c_int ;
+extern var _1_TrackFX_GetFXGUID_: * ?*const fn([*c]MediaTrack,c_int) callconv(.C) [*c]GUID ;
 pub const TrackFX_GetFXGUID = _1_TrackFX_GetFXGUID_;
 
 extern var _1_TrackFX_GetFXName_: * ?*const fn([*c]MediaTrack,c_int,[*c]u8,c_int) callconv(.C) bool ;
